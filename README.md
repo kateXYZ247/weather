@@ -1,26 +1,31 @@
-# weather metadata
+# Weather Metadata
 swagger: '2.0'
 info:
   description: This API allows user to get weather details
+  
   version: 1.0.0
+  
   title: Search Weather Detail API
-  contact:
-    email: starXXX@gmail.com
-#API Design
+
+# API Design
 paths:
   /weather/search:
     get:
       description: |
         By passing in the list of country names, user can search for
         weather info of these countries
+      
       produces:
       - application/json
       
 parameters:
       - in: query
         name: countryList
+        
         description: a list of country names that the user is searching for
+        
         required: true
+        
         type: string
   
 responses:
@@ -34,7 +39,7 @@ responses:
         400:
           description: bad input parameter
 
-#POJP Info
+# POJO Info
 definitions:
   City:
     type: object
