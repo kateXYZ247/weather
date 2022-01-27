@@ -7,10 +7,17 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.Duration;
 
+// runtime load configuration
 @Configuration
 public class RestTemplateConfig {
+    // @Bean is an annotation used on our method level
+    // when our spring boot scan during our runtime, it will start scanning all files in the restTemplate
+    // and store results in the application context at runtime
+
+    // this is how we manage third party library instance or use extend as well
     @Bean
     public RestTemplate getRestTemplate() {
+        // we return new instance instead of class
         return new RestTemplateBuilder().setConnectTimeout(Duration.ofSeconds(5)).build();
     }
 }
