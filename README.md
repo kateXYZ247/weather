@@ -1,4 +1,4 @@
-weather
+#weather metadata
 swagger: '2.0'
 info:
   description: This API allows user to get weather details
@@ -6,6 +6,7 @@ info:
   title: Search Weather Detail API
   contact:
     email: starXXX@gmail.com
+#API Design
 paths:
   /weather/search:
     get:
@@ -14,14 +15,15 @@ paths:
         weather info of these countries
       produces:
       - application/json
-      parameters:
+      
+parameters:
       - in: query
         name: countryList
         description: a list of country names that the user is searching for
         required: true
         type: string
   
-      responses:
+responses:
         200:
           description: successful returned search 
           schema:
@@ -32,6 +34,7 @@ paths:
         400:
           description: bad input parameter
 
+#POJP Info
 definitions:
   City:
     type: object
