@@ -1,4 +1,4 @@
-#weather metadata
+# weather metadata
 swagger: '2.0'
 info:
   description: This API allows user to get weather details
