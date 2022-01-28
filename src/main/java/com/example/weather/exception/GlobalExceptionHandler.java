@@ -1,7 +1,7 @@
 package com.example.weather.exception;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.ExceptionUtils;
+//import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

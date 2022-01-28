@@ -43,7 +43,17 @@ public class SearchController {
         SearchDetailsResponseBody response = new SearchDetailsResponseBody();
         List<List<Map<String, Map>>> result = CompletableFuture.allOf(futures).thenApply(v -> {
             return Arrays.asList(futures).stream().map(f -> f.join()).collect(Collectors.toList());
+        }).handle((output, exception) -> {
+            if (exception != null) {
+                log.error(exception.getMessage());
+                return null;
+            } else {
+                return output;
+            }
         }).join();
+        if (result == null) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         response.setSearchResults(result);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
